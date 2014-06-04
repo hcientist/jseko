@@ -1,55 +1,94 @@
-{"jokes": 
-[
+{
+  "jokes":[
     {
-        "id:": 1,
-        "joke": "What do you call an Alligator in a vest?",
-        "type": "CaR",
-        "answer1": "An investigator!",
-        "answer2": "A snappy dresser!",
-        "answer3": {
-            "ans": "text",
-            "pC": true
+      "id:":1,
+      "joke":"What do you call an Alligator in a vest?",
+      "type":"CaR",
+      "answers":[
+        {
+          "id":1,
+          "ans":"An Investigator!",
+          "pC":false
         },
-        "cadence": false,
-        "parental": false,
-        "pic": "img/investogator.png"
-    },
-    {
-        "id:": 2,
-        "joke": "What is a pirate's favorite letter?",
-        "type": "CaR",
-        "answer1": "Rrrrrrr!",
-        "answer2": "Oh you think it's the Rrrrrr, but their first love be the Ceeeeeea!",
-        "answer3": {
-            "ans": "Their first love be the Ceeeeea because they are being modest.  Their true love is the X because that is what mark's their booty!",
-            "pC": true
+        {
+          "id":2,
+          "ans":"A Snappy Dresser",
+          "pC":false
         },
-        "cadence": true,
-        "parental": false,
-        "pic": null
+        {
+          "id":3,
+          "ans":"Overdressed",
+          "pC":false
+        },
+        {
+          "id":4,
+          "ans":"Fancy as Fuck!",
+          "pC":true
+        }
+      ],
+      "cadence":false,
+      "parental":false,
+      "pic":"img/investogator.png"
     },
     {
-        "id:": 3,
-        "joke": "What do you call fake pasta?",
-        "type": "CaR",
-        "type": "Im-pasta!",
-        "cadence": false,
-        "followupWith": 5
+      "id:":2,
+      "joke":"What is a pirate's favorite letter?",
+      "type":"CaR",
+      "answers":[
+        {
+          "id":1,
+          "ans":"Rrrrrrr!",
+          "pC":false
+        },
+        {
+          "id":2,
+          "ans":"Oh you think it's the Rrrrrr, but their first love be the Ceeeeeea!",
+          "pC":false
+        },
+        {
+          "id":3,
+          "ans":"Their first love be the Ceeeeea because they are being modest.  Their true love is the X because that is what mark's their booty!",
+          "pC":true
+        }
+      ],
+      "cadence":true,
+      "parental":false,
+      "pic":null
     },
     {
-        "id:": 4,
-        "joke": "What do you call fake potato?",
-        "type": "CaR",
-        "type": "An intimi-tatar!",
-        "cadence": false,
-        "followupFrom": 4,
-        "followupWith": 4
+      "id:":3,
+      "joke":"What do you call fake pasta?",
+      "type":"CaR",
+      "answers":[
+        {
+          "id":1,
+          "ans":"Im-pasta!",
+          "pC":false
+        }
+      ],
+      "cadence":false,
+      "followupWith":5
     },
     {
-        "id:": 5,
-        "joke": "Roses are red, Violets are blue. Oh wait, no they’re not, They’re violet.",
-        "type": "1l",
-        "cadence": false
+      "id:":4,
+      "joke":"What do you call fake potato?",
+      "type":"CaR",
+      "answers":[
+        {
+          "id":1,
+          "ans":"Intimi-tatar!",
+          "pC":false
+        }
+      ],
+      "cadence":false,
+      "followupFrom":4,
+      "followupWith":4
+    },
+    {
+      "id:":5,
+      "joke":"Roses are red, Violets are blue. Oh wait, no they’re not, They’re violet.",
+      "type":"1l",
+      "cadence":false
     }
-]
+  ]
 }

@@ -9,11 +9,28 @@
 </div>
  -->
 <div class="row">
+  <!-- <li class="" ng-class="{visible:!joke.checked}" ng-repeat="joke in jokes"> -->
+  <div class="" ng-class="" ng-repeat="individualJoke in allJokes">
+    <!-- {{joke}} -->
+    <!-- [{{$index + 1}}]  -->
+    {{individualJoke.joke}}
+    <!-- {{individualJoke.answers}} -->
+    <!-- {{individualJoke.joke.answers.ans}} -->
+    <ul>
+      <!-- <li class="" ng-class="" ng-repeat="answers in individualJoke"> -->
+      <li class="" ng-class="" ng-repeat="answer in individualJoke.answers">
+        <!-- {{individualJoke.answers.answer.ans}} -->
+         <!-- {{answer.id}} -->
+         {{answer.ans}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row"> Joke Types
   <ul class="">
-    <!-- <li class="" ng-class="{visible:!joke.checked}" ng-repeat="joke in jokes"> -->
-    <li class="" ng-class="" ng-repeat="joke in jokes">
+    <li class="" ng-class="" ng-repeat="uT in uniqTypes">
       <!-- {{joke}} -->
-      {{joke.joke}} : {{joke.answer1}}
-    </li>
+      {{uT}}    
   </ul>
 </div>
