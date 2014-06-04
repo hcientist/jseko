@@ -1,0 +1,55 @@
+{"jokes": 
+[
+    {
+        "id:": 1,
+        "joke": "What do you call an Alligator in a vest?",
+        "type": "CaR",
+        "answer1": "An investigator!",
+        "answer2": "A snappy dresser!",
+        "answer3": {
+            "ans": "text",
+            "pC": true
+        },
+        "cadence": false,
+        "parental": false,
+        "pic": "img/investogator.png"
+    },
+    {
+        "id:": 2,
+        "joke": "What is a pirate's favorite letter?",
+        "type": "CaR",
+        "answer1": "Rrrrrrr!",
+        "answer2": "Oh you think it's the Rrrrrr, but their first love be the Ceeeeeea!",
+        "answer3": {
+            "ans": "Their first love be the Ceeeeea because they are being modest.  Their true love is the X because that is what mark's their booty!",
+            "pC": true
+        },
+        "cadence": true,
+        "parental": false,
+        "pic": null
+    },
+    {
+        "id:": 3,
+        "joke": "What do you call fake pasta?",
+        "type": "CaR",
+        "type": "Im-pasta!",
+        "cadence": false,
+        "followupWith": 5
+    },
+    {
+        "id:": 4,
+        "joke": "What do you call fake potato?",
+        "type": "CaR",
+        "type": "An intimi-tatar!",
+        "cadence": false,
+        "followupFrom": 4,
+        "followupWith": 4
+    },
+    {
+        "id:": 5,
+        "joke": "Roses are red, Violets are blue. Oh wait, no they’re not, They’re violet.",
+        "type": "1l",
+        "cadence": false
+    }
+]
+}

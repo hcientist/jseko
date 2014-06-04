@@ -1,29 +1,19 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">jseko</h3>
+<h1>Jokes</h1>
+
+<div ng-repeat="jokeType in jokeTypeList">
+  <input type="checkbox"/> {{ jokeType }}
 </div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="img/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<!-- <div ng-repeat="joke in jokes | orderByPriority | unique:'type'">
+  <input type="checkbox" ng-model="joke.checked" /> {{ joke.type }}
 </div>
-
-<div class="row marketing">
+ -->
+<div class="row">
   <ul class="">
-    <li class="" ng-repeat="joke in jokes">
+    <!-- <li class="" ng-class="{visible:!joke.checked}" ng-repeat="joke in jokes"> -->
+    <li class="" ng-class="" ng-repeat="joke in jokes">
+      <!-- {{joke}} -->
       {{joke.joke}} : {{joke.answer1}}
     </li>
   </ul>
-</div>
-
-<div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
 </div>

@@ -1,18 +1,11 @@
 'use strict';
 
-angular
-  .module('jsekoApp', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
-    'firebase',
-    'ngRoute'
-  ])
+angular.module('jsekoApp', [ 'ui', 'ngRoute', 'ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainController'
       })
       .otherwise({
         redirectTo: '/'

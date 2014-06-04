@@ -1,4 +1,4 @@
-/*global todomvc, angular, Firebase */
+/*global angular */
 'use strict';
 
 /**
@@ -6,22 +6,27 @@
  * - retrieves and persists the model via the $firebase service
  * - exposes the model to the template and provides event handlers
  */
-// angular.module('jsekoApp', ['firebase', 'ngRoute'])
 angular.module('jsekoApp')
-  .controller('MainCtrl', function MainCtrl($scope, $firebase) {
-    var url = 'https://jseko.firebaseio.com/';
-    var fireRef = new Firebase(url);
+  .controller('MainController', [ '$scope', '$q', 'JokeService', function MainController($scope, $q, JokeService) {
 
-    $scope.jokes = $firebase(fireRef);
-  
-    $scope.addJoke = function() {
-      // AngularFire $add method
-      $scope.jokes.$add($scope.newJoke);
-      //or add   a new person manually
-      // fireRef.update({name: 'Alex', age: 35});
-      // $scope.newPerson = "";
+    JokeService.get(function(data){
+      $scope.jokes = data.jokes;
+    });
+
+    $scope.jokeTypeList = function(){
+      if ($scope.hasOwnProperty('jokes')){
+        var uniqTypes = [];
+        for (var i=0 ; i < $scope.jokes.length ; i++){
+          console.log('C');
+          if (uniqTypes.indexOf($scope.jokes[i].type) < 0){
+            uniqTypes.push($scope.jokes[i].type);
+          }
+        }
+        return uniqTypes;
+      }
     };
-  })
+    $scope.jokeTypeList();
+  }]);
   // .config(function($routeProvider, $locationProvider) {
   // $routeProvider
   //   .when('/Book/:bookId', {
