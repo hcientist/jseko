@@ -1,36 +1,43 @@
-<h1>Jokes</h1>
-
-<div ng-repeat="jokeType in jokeTypeList">
-  <input type="checkbox"/> {{ jokeType }}
-</div>
-
-<!-- <div ng-repeat="joke in jokes | orderByPriority | unique:'type'">
-  <input type="checkbox" ng-model="joke.checked" /> {{ joke.type }}
-</div>
- -->
 <div class="row">
-  <!-- <li class="" ng-class="{visible:!joke.checked}" ng-repeat="joke in jokes"> -->
-  <div class="" ng-class="" ng-repeat="individualJoke in allJokes">
-    <!-- {{joke}} -->
-    <!-- [{{$index + 1}}]  -->
-    {{individualJoke.joke}}
-    <!-- {{individualJoke.answers}} -->
-    <!-- {{individualJoke.joke.answers.ans}} -->
-    <ul>
-      <!-- <li class="" ng-class="" ng-repeat="answers in individualJoke"> -->
-      <li class="" ng-class="" ng-repeat="answer in individualJoke.answers">
-        <!-- {{individualJoke.answers.answer.ans}} -->
-         <!-- {{answer.id}} -->
-         {{answer.ans}}
-      </li>
-    </ul>
+  <div class="col-md-9">
+    <h1>Jokes</h1>
+    <!-- <div ng-repeat="joke in jokes | orderByPriority | unique:'type'">
+      <input type="checkbox" ng-model="joke.checked" /> {{ joke.type }}
+    </div>
+     -->
+    <div class="">
+      <!-- <div ng-repeat="item in items" ng-show="Filter[item.type]">{{item}}</div> -->
+      <!-- <div class="col-md-4" ng-repeat="individualJoke in allJokes" ng-class="{hidden: individualJoke.hidden == true}"> -->
+      <div class="col-md-4" ng-repeat="individualJoke in allJokes" ng-show="Filter[individualJoke.type]">
+        <!-- {{joke}} -->
+        <div class="">
+        <!-- {{individualJoke.hidden}} -->
+          {{individualJoke.joke}}
+        </div>
+        <!-- {{individualJoke.answers}} -->
+        <!-- {{individualJoke.joke.answers.ans}} -->
+          <!-- <li class="" ng-class="" ng-repeat="answers in individualJoke"> -->
+        <!-- <div class="row"> -->
+        <ul>
+          <li class="btn btn-primary" ng-click="showAnswer = ! showAnswer" ng-repeat="answer in individualJoke.answers">
+            <div ng-show="showAnswer">
+              {{answer.ans}}
+            </div>
+          </li>
+        </ul>
+        <!-- </div> -->
+      </div>
+    </div>
   </div>
-</div>
+  <div class="col-md-3">
+    <div class="row"> Joke Types 
+      <div class="col-md-12" ng-repeat="uniq in uniqTypes">
+        <label ng-bind="uniq"></label>
+        <input type="checkbox" ng-model="Filter[uniq]"/>
 
-<div class="row"> Joke Types
-  <ul class="">
-    <li class="" ng-class="" ng-repeat="uT in uniqTypes">
-      <!-- {{joke}} -->
-      {{uT}}    
-  </ul>
+        <!-- <label>{{uT}}</label> -->
+        <!-- <input type="checkbox" ng-model="uniqTypeObjects[uT]" ng-change="searchFilter()" /> -->
+      </div>
+    </div>   
+  </div>
 </div>
