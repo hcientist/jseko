@@ -8,26 +8,26 @@
         {
           "id":1,
           "ans":"An Investigator!",
-          "pC":false
+          "pC":1
         },
         {
           "id":2,
           "ans":"A Snappy Dresser",
-          "pC":false
+          "pC":1
         },
         {
           "id":3,
           "ans":"Overdressed",
-          "pC":false
+          "pC":1
         },
         {
           "id":4,
           "ans":"Fancy as Fuck!",
-          "pC":true
+          "pC":10
         }
       ],
       "cadence":false,
-      "parental":false,
+      "parental":1,
       "pic":"img/investogator.png"
     },
     {
@@ -38,21 +38,21 @@
         {
           "id":1,
           "ans":"Rrrrrrr!",
-          "pC":false
+          "pC":1
         },
         {
           "id":2,
           "ans":"Oh you think it's the Rrrrrr, but their first love be the Ceeeeeea!",
-          "pC":false
+          "pC":1
         },
         {
           "id":3,
           "ans":"Their first love be the Ceeeeea because they are being modest.  Their true love is the X because that is what mark's their booty!",
-          "pC":true
+          "pC":4
         }
       ],
       "cadence":true,
-      "parental":false,
+      "parental":1,
       "pic":null
     },
     {
@@ -63,10 +63,11 @@
         {
           "id":1,
           "ans":"Im-pasta!",
-          "pC":false
+          "pC":1
         }
       ],
       "cadence":false,
+      "parental":1,
       "followupWith":5
     },
     {
@@ -77,10 +78,11 @@
         {
           "id":1,
           "ans":"Intimi-tatar!",
-          "pC":false
+          "pC":1
         }
       ],
       "cadence":false,
+      "parental":1,
       "followupFrom":4,
       "followupWith":4
     },
@@ -88,6 +90,49 @@
       "id:":5,
       "joke":"Roses are red, Violets are blue. Oh wait, no they’re not, They’re violet.",
       "type":"oneLiner",
+      "parental":1,
+      "cadence":false
+    },
+    {
+      "id:":6,
+      "joke":"What did the green grape say to the purple grape?",
+      "type":"CaR",
+      "answers": [
+        {
+          "id":1,
+          "ans":"BREATHE!!!",
+          "pC":1
+        }
+      ],
+      "parental":1,
+      "cadence":false
+    },
+    {
+      "id:":7,
+      "joke":"What did the purple grape say to the green grape?",
+      "type":"CaR",
+      "answers": [
+        {
+          "id":1,
+          "ans":"Nothing.  She couldn't!",
+          "pC":1
+        }
+      ],
+      "parental":1,
+      "cadence":false
+    },
+    {
+      "id:":8,
+      "joke":"Why do women make better soldiers?",
+      "type":"CaR",
+      "answers": [
+        {
+          "id":1,
+          "ans":"Because they can bleed for a week and not die",
+          "pC":8
+        }
+      ],
+      "parental":8,
       "cadence":false
     }
   ]

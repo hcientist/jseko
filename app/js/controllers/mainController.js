@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('jsekoApp')
-  .controller('MainController', [ '$scope', 'JokeService', function MainController($scope, JokeService) {
+  .controller('MainController', [ '$scope', '$filter', 'JokeService', function MainController($scope, $filter, JokeService) {
 
     $scope.Filter = {};
 
@@ -28,5 +28,20 @@ angular.module('jsekoApp')
       .then(function() {
         return jokeTypeList();
       });
+
+    $scope.lowerBound = 1;
+    $scope.upperBound = 6;
+    $scope.jokeLow = 1;
+    $scope.jokeHigh = 8;
+    $scope.jokeAnswerRange = function(jokeAnswer) {
+      return (parseInt(jokeAnswer.pC) >= $scope.lowerBound && parseInt(jokeAnswer.pC) <= $scope.upperBound);
+    };
+    $scope.jokeQuestionRange = function(singleJoke) {
+      return (parseInt(singleJoke.parental) >= $scope.jokeLow && parseInt(singleJoke.parental) <= $scope.jokeHigh);
+    };
+
+    // $scope.JokeFilterOnController = $filter('JokeFilter')($scope);
+    // $filter('JokeFilter');
+    // $scope.pCFilter = $filter('JokeFilter');
 
   }]);
