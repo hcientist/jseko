@@ -43,7 +43,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= yeoman.app %>/css/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
+          '.tmp/css/{,*/}*.css',
           '<%= yeoman.app %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -136,9 +136,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: '.tmp/css/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '.tmp/css/'
         }]
       }
     },
@@ -150,7 +150,7 @@ module.exports = function (grunt) {
         ignorePath: '<%= yeoman.app %>/'
       },
       sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= yeoman.app %>/css/{,*/}*.{scss,sass}'],
         ignorePath: '<%= yeoman.app %>/bower_components/'
       }
     },
@@ -158,16 +158,16 @@ module.exports = function (grunt) {
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
+        sassDir: '<%= yeoman.app %>/css',
+        cssDir: '.tmp/css',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/img',
         javascriptsDir: '<%= yeoman.app %>/js',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        fontsDir: '<%= yeoman.app %>/css/fonts',
         importPath: '<%= yeoman.app %>/bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
+        httpFontsPath: '/css/fonts',
         relativeAssets: false,
         assetCacheBuster: false,
         raw: 'Sass::Script::Number.precision = 10\n'
@@ -190,9 +190,9 @@ module.exports = function (grunt) {
         files: {
           src: [
             '<%= yeoman.dist %>/js/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
+            '<%= yeoman.dist %>/css/{,*/}*.css',
             '<%= yeoman.dist %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/styles/fonts/*'
+            '<%= yeoman.dist %>/css/fonts/*'
           ]
         }
       }
@@ -220,7 +220,7 @@ module.exports = function (grunt) {
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+      css: ['<%= yeoman.dist %>/css/{,*/}*.css'],
       options: {
         assetsDirs: ['<%= yeoman.dist %>']
       }
@@ -279,9 +279,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat/scripts',
+          cwd: '.tmp/concat/js',
           src: '*.js',
-          dest: '.tmp/concat/scripts'
+          dest: '.tmp/concat/js'
         }]
       }
     },
@@ -316,10 +316,10 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }]
       },
-      styles: {
+      css: {
         expand: true,
-        cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
+        cwd: '<%= yeoman.app %>/css',
+        dest: '.tmp/css/',
         src: '{,*/}*.css'
       }
     },
@@ -355,8 +355,8 @@ module.exports = function (grunt) {
     // uglify: {
     //   dist: {
     //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
+    //       '<%= yeoman.dist %>/js/js.js': [
+    //         '<%= yeoman.dist %>/js/js.js'
     //       ]
     //     }
     //   }
@@ -374,6 +374,39 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js',
         singleRun: true
+      }
+    },
+
+    'ftp-deploy': {
+      build: {
+        auth: {
+          host: 'specialorange.org',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: '/Users/dejanew/Dropbox/dev/jseko',
+        dest: 'specialorange.org/jseko',
+        exclusions: ['/Users/dejanew/Dropbox/dev/jseko/**/.DS_Store',
+        '/Users/dejanew/Dropbox/dev/jseko/**/.ftppass',
+        '/Users/dejanew/Dropbox/dev/jseko/**/.gitignore',
+        '/Users/dejanew/Dropbox/dev/jseko/**/.bowerrc',
+        '/Users/dejanew/Dropbox/dev/jseko/**/.gitattributes',
+        '/Users/dejanew/Dropbox/dev/jseko/**/.editorconfig',
+        '/Users/dejanew/Dropbox/dev/jseko/**/.travis.yml',
+        '/Users/dejanew/Dropbox/dev/jseko/**/bower.json',
+        '/Users/dejanew/Dropbox/dev/jseko/**/.jshintrc',
+        '/Users/dejanew/Dropbox/dev/jseko/**/.tmp',
+        '/Users/dejanew/Dropbox/dev/jseko/**/.sass-cache',
+        '/Users/dejanew/Dropbox/dev/jseko/**/Gruntfile.js',
+        '/Users/dejanew/Dropbox/dev/jseko/**/karma-e2e.conf.js',
+        '/Users/dejanew/Dropbox/dev/jseko/**/karma.conf.js',
+        '/Users/dejanew/Dropbox/dev/jseko/**/package.json',
+        '/Users/dejanew/Dropbox/dev/jseko/**/README.md',
+        '/Users/dejanew/Dropbox/dev/jseko/.git',
+        '/Users/dejanew/Dropbox/dev/jseko/node_modules',
+        '/Users/dejanew/Dropbox/dev/jseko/test',
+        '/Users/dejanew/Dropbox/dev/jseko/app'
+        ]
       }
     }
   });
@@ -449,4 +482,5 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-ftp-deploy');
 };

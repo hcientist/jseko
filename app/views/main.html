@@ -1,45 +1,49 @@
 <div class="row">
-  <div class="col-md-9">
-    <h1>Jokes</h1>
-    <!-- <div ng-repeat="joke in jokes | orderByPriority | unique:'type'">
-      <input type="checkbox" ng-model="joke.checked" /> {{ joke.type }}
-    </div>
-     -->
-    <div class="">
-      <!-- <div ng-repeat="item in items" ng-show="Filter[item.type]">{{item}}</div> -->
-      <!-- <div class="col-md-4" ng-repeat="individualJoke in allJokes" ng-class="{hidden: individualJoke.hidden == true}"> -->
-      <div class="col-md-4" ng-repeat="individualJoke in allJokes | filter:jokeQuestionRange" ng-show="Filter[individualJoke.type]">
-        <!-- {{joke}} -->
-        <div class="">
-          {{individualJoke.joke}}
-        </div>
-        <ul>
-          <li class="btn btn-primary" ng-click="showAnswer = ! showAnswer" ng-repeat="answer in individualJoke.answers | filter:jokeAnswerRange">
-            <div ng-show="showAnswer">
-              {{answer.ans}}
-            </div>
-          </li>
-        </ul>
-        <!-- </div> -->
+  <div class="col-md-8 col-md-offset-1">
+    <h1>Jseko: Jokes in no particular order</h1>
+    <joke ng-repeat="individualJoke in allJokes | filter:jokePCRange | orderBy:randomOrder | filter:search" model="individualJoke" joke-filter="JokeTypeFilter" answer-filter="AnswerTypeFilter" answer-range="answerPCRange" class="col-md-4 joke" ng-class="jokeCssClasses(individualJoke.type)"></joke>
+  </div>
+  <div class="col-md-2 filter">
+    <h3>Filters</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Search :</h4>
+      </div>
+      <div class="col-md-12">
+        <input type="text" placeholder="Full or part-i-al words" ng-model="search.$">
       </div>
     </div>
-  </div>
-  <div class="col-md-3">Filters
     <div class="row">
-      <div class="col-md-12" ng-repeat="uniq in uniqTypes">
-        Joke Type
-        <label ng-bind="uniq"></label>
-        <input type="checkbox" ng-model="Filter[uniq]"/>
+      <div class="col-md-12">
+        <h4>Joke Type</h4>
+      </div>
+      <div class="col-md-4" ng-repeat="uniqJokeType in uniqJokeTypes">
+        <div class="type-filter-button" ng-class="jokeCssClasses(uniqJokeType)" ng-click="jokeTypeClick(uniqJokeType)">
+          <label ng-bind="uniqJokeType"></label>
+          <input type="checkbox" ng-model="uniqJokeType" hidden/>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <h4>Answer Type</h4>
+      </div>
+      <div class="col-md-4" ng-repeat="uniqAnswerType in uniqAnswerTypes">
+        <div class="type-filter-button type-filter-button-{{uniqAnswerType}}" ng-class="answerCssClasses(uniqAnswerType)" ng-click="answerTypeClick(uniqAnswerType)">
+          <label ng-bind="uniqAnswerType"></label>
+          <input type="checkbox" ng-model="AnswerTypeFilter[uniqAnswerType]" hidden/>
+        </div>
       </div>
     </div>   
     <div class="row">
       <div class="col-md-12">
-        Parental Control
-        <!-- <input ng-model="pCValue" type="text" id="mySlider1" slider options="pCOptions" /> -->
-        <!-- <slider floor="1" custom-floor="1" custom-ceiling="10" ceiling="10" ng-model-low="lowerBound" ng-model-high="upperBound"></slider> -->
-        <slider ng-model="lowerBound" ng-model-range="upperBound" floor="1" ceiling="10" step="1"></slider>
-        <slider ng-model="jokeLow" ng-model-range="jokeHigh" floor="1" ceiling="10" step="1"></slider>
+        <h4>Parental Control</h4>
       </div>
-    </div>
+      <div class="col-md-12">
+        <h5>Joke Filtering</h5>
+        <rzslider rz-slider-model="slider.jokeLowerBound" rz-slider-high="slider.jokeUpperBound" rz-slider-floor="slider.min" rz-slider-ceil="slider.max"></rzslider>
+      </div>
+      <div class="col-md-12">
+        <h5>Answer Filtering</h5>
+        <rzslider rz-slider-model="slider.answerLowerBound" rz-slider-high="slider.answerUpperBound" rz-slider-floor="slider.min" rz-slider-ceil="slider.max"></rzslider>
+      </div>
   </div>
 </div>

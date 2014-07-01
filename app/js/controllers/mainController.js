@@ -4,19 +4,73 @@
 angular.module('jsekoApp')
   .controller('MainController', [ '$scope', '$filter', 'JokeService', function MainController($scope, $filter, JokeService) {
 
-    $scope.Filter = {};
+    $scope.message = 'ANSWER: ';
 
-    var jokeTypeList = function(){
-      if ($scope.hasOwnProperty('allJokes')){
-        var uniqTypes = [];
-        for (var i=0 ; i < $scope.allJokes.length ; i++){
-          if (uniqTypes.indexOf($scope.allJokes[i].type) < 0){
-            uniqTypes.push($scope.allJokes[i].type);
-            $scope.Filter[$scope.allJokes[i].type] = true;
+    $scope.JokeTypeFilter = {};
+    $scope.AnswerTypeFilter = {};
+
+    var shuffleArray = function(array) {
+      var m = array.length, t, i;
+
+      // While there remain elements to shuffle
+      while (m) {
+        // Pick a remaining element…
+        i = Math.floor(Math.random() * m--);
+
+        // And swap it with the current element.
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+      }
+      return array;
+    };
+
+    var jokeTypeList = function(jokeArray){
+      var uniqJokeTypes = [];
+      var uniqAnswerTypes = [];
+      for (var i=0 ; i < jokeArray.length ; i++){
+        if (uniqJokeTypes.indexOf(jokeArray[i].type) < 0){
+          uniqJokeTypes.push(jokeArray[i].type);
+          $scope.JokeTypeFilter[jokeArray[i].type] = true;
+        }
+        //Check if there is a joke answer type
+        if(jokeArray[i].answers){
+          for(var j=0 ; j < jokeArray[i].answers.length ; j++){
+            if (uniqAnswerTypes.indexOf(jokeArray[i].answers[j].type) < 0){
+              if(jokeArray[i].answers[j].type){
+                uniqAnswerTypes.push(jokeArray[i].answers[j].type);
+                $scope.AnswerTypeFilter[jokeArray[i].answers[j].type] = true;
+              }
+            }
           }
         }
-        $scope.uniqTypes = uniqTypes;
-        return uniqTypes;
+      }
+      $scope.uniqJokeTypes = uniqJokeTypes;
+      $scope.uniqAnswerTypes = uniqAnswerTypes;
+      return uniqJokeTypes;
+    };
+
+    $scope.jokeTypeClick = function($event){
+      var uniqJoke = $event;
+      $scope.JokeTypeFilter[uniqJoke] = !$scope.JokeTypeFilter[uniqJoke];
+    };
+    $scope.answerTypeClick = function($event){
+      var uniqAnswer = $event;
+      $scope.AnswerTypeFilter[uniqAnswer] = !$scope.AnswerTypeFilter[uniqAnswer];
+    };
+
+    $scope.jokeCssClasses = function(uniqJoke) {
+      if ($scope.JokeTypeFilter[uniqJoke] === true) {
+        return uniqJoke.split(' ').join('-');
+      } else {
+        return uniqJoke.split(' ').join('-')+'-off';
+      }
+    };
+    $scope.answerCssClasses = function(uniqAnswer) {
+      if ($scope.AnswerTypeFilter[uniqAnswer] === true) {
+        return uniqAnswer.split(' ').join('-');
+      } else {
+        return uniqAnswer.split(' ').join('-')+'-off';
       }
     };
 
@@ -24,22 +78,28 @@ angular.module('jsekoApp')
       .then(function(data) {
         //this will execute when the AJAX call completes.
         $scope.allJokes = data.jokes;
+        $scope.shuffledJokes = shuffleArray($scope.allJokes);
       })
       .then(function() {
-        return jokeTypeList();
+        return jokeTypeList($scope.shuffledJokes);
       });
 
-    $scope.lowerBound = 1;
-    $scope.upperBound = 6;
-    $scope.jokeLow = 1;
-    $scope.jokeHigh = 8;
-    $scope.jokeAnswerRange = function(jokeAnswer) {
-      return (parseInt(jokeAnswer.pC) >= $scope.lowerBound && parseInt(jokeAnswer.pC) <= $scope.upperBound);
-    };
-    $scope.jokeQuestionRange = function(singleJoke) {
-      return (parseInt(singleJoke.parental) >= $scope.jokeLow && parseInt(singleJoke.parental) <= $scope.jokeHigh);
+    $scope.slider = {
+      answerLowerBound : 1,
+      answerUpperBound : 8,
+      jokeLowerBound : 1,
+      jokeUpperBound : 8,
+      min: 1,
+      max: 10
     };
 
+    $scope.answerPCRange = function(jokeAnswer) {
+      return (parseInt(jokeAnswer.pC) >= $scope.slider.answerLowerBound && parseInt(jokeAnswer.pC) <= $scope.slider.answerUpperBound);
+    };
+    $scope.jokePCRange = function(singleJoke) {
+      return (parseInt(singleJoke.parental) >= $scope.slider.jokeLowerBound && parseInt(singleJoke.parental) <= $scope.slider.jokeUpperBound);
+    };
+// -> Fisher–Yates shuffle algorithm
     // $scope.JokeFilterOnController = $filter('JokeFilter')($scope);
     // $filter('JokeFilter');
     // $scope.pCFilter = $filter('JokeFilter');

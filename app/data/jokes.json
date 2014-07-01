@@ -3,50 +3,62 @@
     {
       "id:":1,
       "joke":"What do you call an Alligator in a vest?",
-      "type":"CaR",
+      "type":"Call and Response",
       "answers":[
         {
           "id":1,
+          "type": "Text",
           "ans":"An Investigator!",
           "pC":1
         },
         {
           "id":2,
+          "type": "Text",
           "ans":"A Snappy Dresser",
           "pC":1
         },
         {
           "id":3,
+          "type": "Text",
           "ans":"Overdressed",
           "pC":1
         },
         {
           "id":4,
+          "type": "Text",
           "ans":"Fancy as Fuck!",
           "pC":10
+        },
+        {
+          "id":5,
+          "type": "Image",
+          "image": "img/investigator.png",
+          "pC":1
         }
       ],
       "cadence":false,
-      "parental":1,
-      "pic":"img/investogator.png"
+      "parental":1
     },
     {
       "id:":2,
       "joke":"What is a pirate's favorite letter?",
-      "type":"CaR",
+      "type":"Call and Response",
       "answers":[
         {
           "id":1,
+          "type": "Text",
           "ans":"Rrrrrrr!",
           "pC":1
         },
         {
           "id":2,
+          "type": "Text",
           "ans":"Oh you think it's the Rrrrrr, but their first love be the Ceeeeeea!",
           "pC":1
         },
         {
           "id":3,
+          "type": "Text",
           "ans":"Their first love be the Ceeeeea because they are being modest.  Their true love is the X because that is what mark's their booty!",
           "pC":4
         }
@@ -58,10 +70,11 @@
     {
       "id:":3,
       "joke":"What do you call fake pasta?",
-      "type":"CaR",
+      "type":"Call and Response",
       "answers":[
         {
           "id":1,
+          "type": "Text",
           "ans":"Im-pasta!",
           "pC":1
         }
@@ -73,11 +86,12 @@
     {
       "id:":4,
       "joke":"What do you call fake potato?",
-      "type":"CaR",
+      "type":"Call and Response",
       "answers":[
         {
           "id":1,
-          "ans":"Intimi-tatar!",
+          "type": "Text",
+          "ans":"Imi-tatar!",
           "pC":1
         }
       ],
@@ -89,17 +103,18 @@
     {
       "id:":5,
       "joke":"Roses are red, Violets are blue. Oh wait, no they’re not, They’re violet.",
-      "type":"oneLiner",
+      "type":"One Liner",
       "parental":1,
       "cadence":false
     },
     {
       "id:":6,
       "joke":"What did the green grape say to the purple grape?",
-      "type":"CaR",
+      "type":"Call and Response",
       "answers": [
         {
           "id":1,
+          "type": "Text",
           "ans":"BREATHE!!!",
           "pC":1
         }
@@ -110,10 +125,11 @@
     {
       "id:":7,
       "joke":"What did the purple grape say to the green grape?",
-      "type":"CaR",
+      "type":"Call and Response",
       "answers": [
         {
           "id":1,
+          "type": "Text",
           "ans":"Nothing.  She couldn't!",
           "pC":1
         }
@@ -124,11 +140,27 @@
     {
       "id:":8,
       "joke":"Why do women make better soldiers?",
-      "type":"CaR",
+      "type":"Call and Response",
       "answers": [
         {
           "id":1,
+          "type": "Text",
           "ans":"Because they can bleed for a week and not die",
+          "pC":8
+        }
+      ],
+      "parental":8,
+      "cadence":false
+    },
+    {
+      "id:":9,
+      "joke":"What is a word made up of 4 letters yet is also made up of 3 although is written with 8 letters and then with 4 rarely consists of 6 and never is written with 5",
+      "type":"Riddle",
+      "answers": [
+        {
+          "id":1,
+          "type": "Text",
+          "ans":"WHAT is a word made up of 4 letters YET is also made up of 3. ALTHOUGH is written with 8 letters, and THEN with 4. RARELY consists of 6 and NEVER is written with 5",
           "pC":8
         }
       ],

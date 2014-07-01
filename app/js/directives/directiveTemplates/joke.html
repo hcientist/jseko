@@ -1,0 +1,11 @@
+<div class="" ng-show="JokeTypeFilter[individualJoke.type]">
+  <!-- {{joke}} -->
+  <div class="">
+    {{individualJoke.joke}}
+  </div>
+  <!-- <div class="container-fluid"> -->
+  <!-- <div class="row"> -->
+  <answer-holder ng-repeat="answer in individualJoke.answers | filter:answerPCRange" model="answer" ng-show="AnswerTypeFilter[answer.type]"></answer-holder>
+  <!-- </div> -->
+  <!-- </div> -->
+</div>
