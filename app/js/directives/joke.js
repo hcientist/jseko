@@ -10,8 +10,7 @@ angular.module('jsekoApp')
       // {} = isolate, true = child, false/undefined = no change
       scope: {
         individualJoke: '=model',
-        AnswerTypeFilter: '=answerFilter',
-        JokeTypeFilter: '=jokeFilter',
+        arrayOfViewableAnswerTypes: '=answerFilterArray',
         answerPCRange: '=answerRange'
       },
       // controller: function($scope, $element, $attrs, $transclude) {      },

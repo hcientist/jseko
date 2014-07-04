@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jsekoApp')
-  .directive('answerHolder', [function(){
+  .directive('answerHolder', [ function(){
     // Runs during compile
     return {
       // name: '',

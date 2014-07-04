@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-1">
     <h1>Jseko: Jokes in no particular order</h1>
     <!-- ng-show="JokeTypeFilter[individualJoke.type]" -->
-    <joke ng-repeat="individualJoke in allJokes | filter:jokePCRange | orderBy:randomOrder | filter:search | JokeTypeRepeat:arrayOfViewableJokeTypes" model="individualJoke" answer-filter="AnswerTypeFilter" answer-range="answerPCRange" class="joke joke-animation"  ng-class="jokeCssClasses(individualJoke.type)" ></joke>
+    <joke ng-repeat="individualJoke in allJokes | filter:jokePCRange | orderBy:randomOrder | filter:search | Type:arrayOfViewableJokeTypes" model="individualJoke" answer-filter-array="arrayOfViewableAnswerTypes" answer-range="answerPCRange" class="col-md-4 joke joke-animation"  ng-class="jokeCssClasses(individualJoke.type)"></joke>
   </div>
   <div class="col-md-2 filter">
     <h3>Filters</h3>
@@ -50,11 +50,3 @@
   </div>
 </div>
 
-<div class="footer">
-  <div class="container">
-    <p>Werner Heisenberg, Kurt Gödel, and Noam Chomsky walk into a bar.<br>
-    Heisenberg turns to the other two and says, "Clearly this is a joke, but how can we figure out if it's funny or not?"<br>
-    Gödel replies, "We can't know that because we're inside the joke."<br>
-    Chomsky says, "Of course it's funny. You're just telling it wrong."</p>
-  </div>
-</div>

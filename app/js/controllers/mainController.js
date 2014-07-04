@@ -2,12 +2,12 @@
 'use strict';
 
 angular.module('jsekoApp')
-  .controller('MainController', [ '$scope', '$filter', 'JokeService', 'JokeTypeRepeatFilter', function MainController($scope, $filter, JokeService, JokeTypeRepeat) {
+  .controller('MainController', [ '$scope', '$filter', 'JokeService', 'TypeFilter', function MainController($scope, $filter, JokeService, Type) {
 
     $scope.message = 'ANSWER: ';
 
     $scope.arrayOfViewableJokeTypes = {};
-    $scope.AnswerTypeFilter = {};
+    $scope.arrayOfViewableAnswerTypes = {};
 
     var shuffleArray = function(array) {
       var m = array.length, t, i;
@@ -39,7 +39,7 @@ angular.module('jsekoApp')
             if (uniqAnswerTypes.indexOf(jokeArray[i].answers[j].type) < 0){
               if(jokeArray[i].answers[j].type){
                 uniqAnswerTypes.push(jokeArray[i].answers[j].type);
-                $scope.AnswerTypeFilter[jokeArray[i].answers[j].type] = true;
+                $scope.arrayOfViewableAnswerTypes[jokeArray[i].answers[j].type] = true;
               }
             }
           }
@@ -56,7 +56,7 @@ angular.module('jsekoApp')
     };
     $scope.answerTypeClick = function(option){
       var uniqAnswer = option;
-      $scope.AnswerTypeFilter[uniqAnswer] = !$scope.AnswerTypeFilter[uniqAnswer];
+      $scope.arrayOfViewableAnswerTypes[uniqAnswer] = !$scope.arrayOfViewableAnswerTypes[uniqAnswer];
     };
 
     $scope.jokeCssClasses = function(uniqJoke) {
@@ -67,7 +67,7 @@ angular.module('jsekoApp')
       }
     };
     $scope.answerCssClasses = function(uniqAnswer) {
-      if ($scope.AnswerTypeFilter[uniqAnswer] === true) {
+      if ($scope.arrayOfViewableAnswerTypes[uniqAnswer] === true) {
         return uniqAnswer.split(' ').join('-');
       } else {
         return uniqAnswer.split(' ').join('-')+'-off';

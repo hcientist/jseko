@@ -39,6 +39,7 @@
 .filter {
   background-color: rgba(255,140,0,0.35);
   border-radius: 20px;
+  margin-bottom: 20px;
 }
 .btn {
   /*border: 1px solid black;*/
