@@ -6,9 +6,9 @@ angular.module('jsekoApp')
       var templateLoader,
       baseUrl = 'js/directives/directiveTemplates/',
       templateMap = {
-        text: 'answerText.html',
-        image: 'answerImage.html',
-        video: 'answerVideo.html'
+        Text: 'answerText.html',
+        Image: 'answerImage.html',
+        Video: 'answerVideo.html'
       };
 
       var templateUrl = baseUrl + templateMap[contentType];
@@ -31,7 +31,7 @@ angular.module('jsekoApp')
       restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
       // template: '<div class="col-md-9 btn {{type}}"><div ng-hide="showAnswer">{{answer}}</div></div>',
       // templateUrl: 'js/directives/directiveTemplates/answer.html',
-      // replace: true,
+      replace: true,
       // transclude: true,
       // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
       link: function(scope, element, attrs) {

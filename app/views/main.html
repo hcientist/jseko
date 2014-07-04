@@ -1,7 +1,8 @@
-<div class="row">
+<div masonry class="row">
   <div class="col-md-8 col-md-offset-1">
     <h1>Jseko: Jokes in no particular order</h1>
-    <joke ng-repeat="individualJoke in allJokes | filter:jokePCRange | orderBy:randomOrder | filter:search" model="individualJoke" joke-filter="JokeTypeFilter" answer-filter="AnswerTypeFilter" answer-range="answerPCRange" class="col-md-4 joke" ng-class="jokeCssClasses(individualJoke.type)"></joke>
+    <!-- ng-show="JokeTypeFilter[individualJoke.type]" -->
+    <joke ng-repeat="individualJoke in allJokes | filter:jokePCRange | orderBy:randomOrder | filter:search | JokeTypeRepeat:arrayOfViewableJokeTypes" model="individualJoke" answer-filter="AnswerTypeFilter" answer-range="answerPCRange" class="joke joke-animation"  ng-class="jokeCssClasses(individualJoke.type)" ></joke>
   </div>
   <div class="col-md-2 filter">
     <h3>Filters</h3>
@@ -17,17 +18,17 @@
       <div class="col-md-12">
         <h4>Joke Type</h4>
       </div>
-      <div class="col-md-4" ng-repeat="uniqJokeType in uniqJokeTypes">
-        <div class="type-filter-button" ng-class="jokeCssClasses(uniqJokeType)" ng-click="jokeTypeClick(uniqJokeType)">
-          <label ng-bind="uniqJokeType"></label>
-          <input type="checkbox" ng-model="uniqJokeType" hidden/>
+        <div class="col-md-4" ng-repeat="uniqJokeType in uniqJokeTypes">
+          <div class="type-filter-button" ng-class="jokeCssClasses(uniqJokeType)" ng-click="jokeTypeClick(uniqJokeType)">
+            <label ng-bind="uniqJokeType"></label>
+            <input type="checkbox" ng-model="uniqJokeType" hidden/>
+          </div>
         </div>
-      </div>
       <div class="col-md-12">
         <h4>Answer Type</h4>
       </div>
       <div class="col-md-4" ng-repeat="uniqAnswerType in uniqAnswerTypes">
-        <div class="type-filter-button type-filter-button-{{uniqAnswerType}}" ng-class="answerCssClasses(uniqAnswerType)" ng-click="answerTypeClick(uniqAnswerType)">
+        <div class="type-filter-button" ng-class="answerCssClasses(uniqAnswerType)" ng-click="answerTypeClick(uniqAnswerType)">
           <label ng-bind="uniqAnswerType"></label>
           <input type="checkbox" ng-model="AnswerTypeFilter[uniqAnswerType]" hidden/>
         </div>
@@ -45,5 +46,15 @@
         <h5>Answer Filtering</h5>
         <rzslider rz-slider-model="slider.answerLowerBound" rz-slider-high="slider.answerUpperBound" rz-slider-floor="slider.min" rz-slider-ceil="slider.max"></rzslider>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <p>Werner Heisenberg, Kurt Gödel, and Noam Chomsky walk into a bar.<br>
+    Heisenberg turns to the other two and says, "Clearly this is a joke, but how can we figure out if it's funny or not?"<br>
+    Gödel replies, "We can't know that because we're inside the joke."<br>
+    Chomsky says, "Of course it's funny. You're just telling it wrong."</p>
   </div>
 </div>

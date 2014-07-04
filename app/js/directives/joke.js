@@ -19,11 +19,12 @@ angular.module('jsekoApp')
       restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
       // template: '<div class="col-md-9 btn {{type}}"><div ng-hide="showAnswer">{{answer}}</div></div>',
       templateUrl: 'js/directives/directiveTemplates/joke.html',
-      // replace: true,
+      replace: true,
       // transclude: true,
       // compile: function(tElement, tAttrs, transclude){         return function linking(scope, elm, attrs){        }
       // }
-      link: function(scope, iElm, iAttrs) {
+      // link: function(scope, iElm, iAttrs) {
+      link: function() {
         // scope.jokeCssClasses = function(uniqJoke) {
         //   if (scope.JokeTypeFilter[uniqJoke] === true) {
         //     return uniqJoke.split(' ').join('-');

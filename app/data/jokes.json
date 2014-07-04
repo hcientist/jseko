@@ -45,19 +45,19 @@
       "type":"Call and Response",
       "answers":[
         {
-          "id":1,
+          "id":6,
           "type": "Text",
           "ans":"Rrrrrrr!",
           "pC":1
         },
         {
-          "id":2,
+          "id":7,
           "type": "Text",
           "ans":"Oh you think it's the Rrrrrr, but their first love be the Ceeeeeea!",
           "pC":1
         },
         {
-          "id":3,
+          "id":8,
           "type": "Text",
           "ans":"Their first love be the Ceeeeea because they are being modest.  Their true love is the X because that is what mark's their booty!",
           "pC":4
@@ -73,7 +73,7 @@
       "type":"Call and Response",
       "answers":[
         {
-          "id":1,
+          "id":9,
           "type": "Text",
           "ans":"Im-pasta!",
           "pC":1
@@ -89,7 +89,7 @@
       "type":"Call and Response",
       "answers":[
         {
-          "id":1,
+          "id":10,
           "type": "Text",
           "ans":"Imi-tatar!",
           "pC":1
@@ -113,7 +113,7 @@
       "type":"Call and Response",
       "answers": [
         {
-          "id":1,
+          "id":11,
           "type": "Text",
           "ans":"BREATHE!!!",
           "pC":1
@@ -128,7 +128,7 @@
       "type":"Call and Response",
       "answers": [
         {
-          "id":1,
+          "id":12,
           "type": "Text",
           "ans":"Nothing.  She couldn't!",
           "pC":1
@@ -139,17 +139,17 @@
     },
     {
       "id:":8,
-      "joke":"Why do women make better soldiers?",
+      "joke":"What did the digital clock say to the grandfather clock?",
       "type":"Call and Response",
       "answers": [
         {
-          "id":1,
+          "id":13,
           "type": "Text",
-          "ans":"Because they can bleed for a week and not die",
-          "pC":8
+          "ans":"Look Grandpa! No hands!",
+          "pC":1
         }
       ],
-      "parental":8,
+      "parental":1,
       "cadence":false
     },
     {
@@ -158,14 +158,250 @@
       "type":"Riddle",
       "answers": [
         {
-          "id":1,
+          "id":14,
           "type": "Text",
           "ans":"WHAT is a word made up of 4 letters YET is also made up of 3. ALTHOUGH is written with 8 letters, and THEN with 4. RARELY consists of 6 and NEVER is written with 5",
-          "pC":8
+          "pC":1
         }
       ],
-      "parental":8,
+      "parental":1,
       "cadence":false
+    },
+    {
+      "id": 10,
+      "joke": "How many tickles does it take to make an octopus laugh?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 15,
+          "type": "Text",
+          "ans": "Ten Tickles!",
+          "pC": 1
+        }
+      ],
+      "parental": 1,
+      "cadence": false
+    },
+    {
+      "id": 11,
+      "joke": "How many ants can fit into an apartment?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 16,
+          "type": "Text",
+          "ans": "Ten ants!",
+          "pC": 1
+        }
+      ],
+      "parental": 1,
+      "cadence": false
+    },
+    {
+      "id": 12,
+      "joke": "Why was 6 afraid 7?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 17,
+          "type": "Text",
+          "ans": "Because 7 8 9.",
+          "pC": 4
+        },
+        {
+          "id": 18,
+          "type": "Text",
+          "ans": "Because 7 was a registered 6 offender.",
+          "pC": 7
+        }
+      ],
+      "parental": 4,
+      "cadence": false
+    },
+    {
+      "id": 13,
+      "joke": "Why do we seagulls fly over the sea?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 19,
+          "type": "Text",
+          "ans": "Because if they flew over the bay, we would have to call them bagels",
+          "pC": 1
+        }
+      ],
+      "parental": 1,
+      "cadence": false
+    },
+    {
+      "id": 14,
+      "joke": "Roses are grey, violets are grey, I am a dog.",
+      "type": "One Liner",
+      "parental": 3,
+      "cadence": false
+    },
+    {
+      "id": 15,
+      "joke": "Roses are red, violets are blue, I am bad at rhyming, refrigerator.",
+      "type": "One Liner",
+      "parental": 3,
+      "cadence": false
+    },
+    {
+      "id": 16,
+      "joke": "When is a door not a door?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 20,
+          "type": "Text",
+          "ans": "When it is a jar.",
+          "pC": 2
+        }
+      ],
+      "parental": 2,
+      "cadence": false
+    },
+    {
+      "id": 17,
+      "joke": "Why did the baby cookie cry?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 21,
+          "type": "Text",
+          "ans": "Because his mother was a wafer so long.",
+          "pC": 1
+        }
+      ],
+      "parental": 1,
+      "cadence": false
+    },
+    {
+      "id": 18,
+      "joke": "What goes zzub zzub?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 22,
+          "type": "Text",
+          "ans": "A bee flying backwards",
+          "pC": 2
+        }
+      ],
+      "parental": 2,
+      "cadence": false
+    },
+    {
+      "id": 19,
+      "joke": "Have you seen the elephant hiding?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 23,
+          "type": "Text",
+          "ans": "Of course not, he’s hiding.",
+          "pC": 1
+        }
+      ],
+      "parental": 1,
+      "cadence": false
+    },
+    {
+      "id": 20,
+      "joke": "I entered ten puns into a joke contest hoping one would win. No pun in ten did.",
+      "type": "One Liner",
+      "parental": 3,
+      "cadence": false
+    },
+    {
+      "id": 21,
+      "joke": "Why did Snoop Dogg buy an umbrella?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 24,
+          "type": "Text",
+          "ans": "For Drizzle!",
+          "pC": 3
+        }
+      ],
+      "parental": 3,
+      "cadence": false
+    },
+    {
+      "id": 22,
+      "joke": "Why did Snoop Dogg visit Germany?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 25,
+          "type": "Text",
+          "ans": "For Schnitzel!",
+          "pC": 3
+        }
+      ],
+      "parental": 3,
+      "cadence": false
+    },
+    {
+      "id": 23,
+      "joke": "When is a lumberjack’s birthday?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 26,
+          "type": "Text",
+          "ans": "SepTIMBERRRRRRRR!",
+          "pC": 1
+        }
+      ],
+      "parental": 1,
+      "cadence": false
+    },
+    {
+      "id": 24,
+      "joke": "What’s brown and sticky?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 27,
+          "type": "Text",
+          "ans": "A stick!",
+          "pC": 2
+        }
+      ],
+      "parental": 4,
+      "cadence": false
+    },
+    {
+      "id": 25,
+      "joke": "I farted in an elevator once, it was wrong on so many levels.",
+      "type": "One Liner",
+      "parental": 4,
+      "cadence": false
+    },
+    {
+      "id": 26,
+      "joke": "What’s invisible and smells like a carrot?",
+      "type": "Call and Response",
+      "answers": [
+        {
+          "id": 28,
+          "type": "Text",
+          "ans": "A rabbit’s toot.",
+          "pC": 4
+        }
+      ],
+      "parental": 4,
+      "cadence": false
+    },
+    {
+      "id": 27,
+      "joke": "System.out.print(“Best one-liner”);",
+      "type": "One Liner",
+      "parental": 2,
+      "cadence": false
     }
   ]
 }

@@ -2,11 +2,11 @@
 'use strict';
 
 angular.module('jsekoApp')
-  .controller('MainController', [ '$scope', '$filter', 'JokeService', function MainController($scope, $filter, JokeService) {
+  .controller('MainController', [ '$scope', '$filter', 'JokeService', 'JokeTypeRepeatFilter', function MainController($scope, $filter, JokeService, JokeTypeRepeat) {
 
     $scope.message = 'ANSWER: ';
 
-    $scope.JokeTypeFilter = {};
+    $scope.arrayOfViewableJokeTypes = {};
     $scope.AnswerTypeFilter = {};
 
     var shuffleArray = function(array) {
@@ -31,7 +31,7 @@ angular.module('jsekoApp')
       for (var i=0 ; i < jokeArray.length ; i++){
         if (uniqJokeTypes.indexOf(jokeArray[i].type) < 0){
           uniqJokeTypes.push(jokeArray[i].type);
-          $scope.JokeTypeFilter[jokeArray[i].type] = true;
+          $scope.arrayOfViewableJokeTypes[jokeArray[i].type] = true;
         }
         //Check if there is a joke answer type
         if(jokeArray[i].answers){
@@ -47,20 +47,20 @@ angular.module('jsekoApp')
       }
       $scope.uniqJokeTypes = uniqJokeTypes;
       $scope.uniqAnswerTypes = uniqAnswerTypes;
-      return uniqJokeTypes;
+      // return uniqJokeTypes;
     };
 
-    $scope.jokeTypeClick = function($event){
-      var uniqJoke = $event;
-      $scope.JokeTypeFilter[uniqJoke] = !$scope.JokeTypeFilter[uniqJoke];
+    $scope.jokeTypeClick = function(option){
+      var uniqJoke = option;
+      $scope.arrayOfViewableJokeTypes[uniqJoke] = !$scope.arrayOfViewableJokeTypes[uniqJoke];
     };
-    $scope.answerTypeClick = function($event){
-      var uniqAnswer = $event;
+    $scope.answerTypeClick = function(option){
+      var uniqAnswer = option;
       $scope.AnswerTypeFilter[uniqAnswer] = !$scope.AnswerTypeFilter[uniqAnswer];
     };
 
     $scope.jokeCssClasses = function(uniqJoke) {
-      if ($scope.JokeTypeFilter[uniqJoke] === true) {
+      if ($scope.arrayOfViewableJokeTypes[uniqJoke] === true) {
         return uniqJoke.split(' ').join('-');
       } else {
         return uniqJoke.split(' ').join('-')+'-off';
@@ -78,10 +78,10 @@ angular.module('jsekoApp')
       .then(function(data) {
         //this will execute when the AJAX call completes.
         $scope.allJokes = data.jokes;
-        $scope.shuffledJokes = shuffleArray($scope.allJokes);
+        shuffleArray($scope.allJokes);
       })
       .then(function() {
-        return jokeTypeList($scope.shuffledJokes);
+        jokeTypeList($scope.allJokes);
       });
 
     $scope.slider = {
