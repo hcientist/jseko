@@ -154,13 +154,13 @@
     },
     {
       "id:":9,
-      "joke":"What is a word made up of 4 letters yet is also made up of 3 although is written with 8 letters and then with 4 rarely consists of 6 and never is written with 5",
+      "joke":"What is a word made up of 4 letters yet is made up of 3 although is written with 8 letters and then with 4 rarely consists of 6 and never is written with 5",
       "type":"Riddle",
       "answers": [
         {
           "id":14,
           "type": "Text",
-          "ans":"WHAT is a word made up of 4 letters YET is also made up of 3. ALTHOUGH is written with 8 letters, and THEN with 4. RARELY consists of 6 and NEVER is written with 5",
+          "ans":"WHAT is a word made up of 4 letters YET is made up of 3. ALTHOUGH is written with 8 letters, and THEN with 4. RARELY consists of 6 and NEVER is written with 5",
           "pC":1
         }
       ],
@@ -402,6 +402,21 @@
       "type": "One Liner",
       "parental": 2,
       "cadence": false
+    },
+    {
+      "id": 28,
+      "joke": "How did Moses like his coffee?",
+      "type": "Call and Response",
+      "parental": 2,
+      "cadence": false,
+      "answers": [
+        {
+          "id": 29,
+          "type": "Text",
+          "ans": "Hebrew ed it!",
+          "pC": 2
+        }
+      ]
     }
   ]
 }

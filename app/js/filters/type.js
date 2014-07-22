@@ -8,7 +8,8 @@ angular.module('jsekoApp')
 
     var filteredArray = [];
 
-    angular.forEach(allItems, function(individualItem, index){
+    // angular.forEach(allItems, function(individualItem, index){
+    angular.forEach(allItems, function(individualItem){
       if(arrayOfViewableTypes[individualItem.type]){
         filteredArray.push(individualItem);
       }

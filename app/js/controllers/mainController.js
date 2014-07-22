@@ -2,10 +2,11 @@
 'use strict';
 
 angular.module('jsekoApp')
-  .controller('MainController', [ '$scope', '$filter', 'JokeService', 'TypeFilter', function MainController($scope, $filter, JokeService, Type) {
+  .controller('MainController', [ '$scope', '$filter', 'JokeService', 'TypeFilter', 'SpaceToHyphenFilter', function MainController($scope, $filter, JokeService, Type, SpaceToHyphen) {
+  // .controller('MainController', [ '$scope', '$filter', 'JokeService', 'TypeFilter', function MainController($scope, $filter, JokeService, Type) {
 
     $scope.message = 'ANSWER: ';
-
+    // $scope.Type = Type;
     $scope.arrayOfViewableJokeTypes = {};
     $scope.arrayOfViewableAnswerTypes = {};
 

@@ -1,7 +1,7 @@
 'use strict';
 // can assign to a variable
 // var jsekoApp = angular.module('jsekoApp', [ 'ui', 'ngRoute', 'ngResource'])
-angular.module('jsekoApp', [ 'ui', 'ngRoute', 'rzModule', 'ngAnimate', 'wu.masonry'])
+angular.module('jsekoApp', [ 'ui', 'ngRoute', 'rzModule', 'ngAnimate', 'wu.masonry', 'NgSwitchery'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

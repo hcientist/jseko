@@ -2,7 +2,16 @@
   <div class="col-md-8 col-md-offset-1">
     <h1>Jseko: Jokes in no particular order</h1>
     <!-- ng-show="JokeTypeFilter[individualJoke.type]" -->
-    <joke ng-repeat="individualJoke in allJokes | filter:jokePCRange | orderBy:randomOrder | filter:search | Type:arrayOfViewableJokeTypes" model="individualJoke" answer-filter-array="arrayOfViewableAnswerTypes" answer-range="answerPCRange" class="col-md-4 joke joke-animation"  ng-class="jokeCssClasses(individualJoke.type)"></joke>
+    <joke ng-repeat="individualJoke in allJokes |
+                     filter:jokePCRange |
+                     orderBy:randomOrder |
+                     filter:search |
+                     Type:arrayOfViewableJokeTypes"
+          model="individualJoke"
+          answer-filter-array="arrayOfViewableAnswerTypes"
+          answer-range="answerPCRange"
+          class="col-md-4 joke joke-animation"
+          ng-class="jokeCssClasses(individualJoke.type)"></joke>
   </div>
   <div class="col-md-2 filter">
     <h3>Filters</h3>
@@ -18,19 +27,54 @@
       <div class="col-md-12">
         <h4>Joke Type</h4>
       </div>
-        <div class="col-md-4" ng-repeat="uniqJokeType in uniqJokeTypes">
-          <div class="type-filter-button" ng-class="jokeCssClasses(uniqJokeType)" ng-click="jokeTypeClick(uniqJokeType)">
-            <label ng-bind="uniqJokeType"></label>
-            <input type="checkbox" ng-model="uniqJokeType" hidden/>
+      <div ng-repeat="uniqJokeType in uniqJokeTypes">
+        <div class="row">
+          <div class="col-md-7 col-md-offset-1">
+            <div class="type-filter-button"
+                 ng-class="jokeCssClasses(uniqJokeType)"
+                 ng-click="jokeTypeClick(uniqJokeType)">
+            <!-- <div ng-class="jokeCssClasses(uniqJokeType)"> -->
+              <label ng-bind="uniqJokeType" 
+                     for="input-{{uniqJokeType}}">{{uniqJokeType | SpaceToHyphen}}
+              </label>
+            </div>
+          </div>
+          <div class="col-md-3">          
+            <input id="input-{{uniqJokeType | SpaceToHyphen}}"
+                   type="checkbox"
+                   ng-click="jokeTypeClick(uniqJokeType)"
+                   ng-model="uniqJokeType"
+                   class="js-switch"
+                   ui-switch="{color: 'green', secondaryColor: '#DDDDDD'}"
+                   checked />
+            <!-- <input id="input-{{uniqJokeType}}" type="checkbox" ng-model="uniqJokeType" class="js-switch" ui-switch checked /> -->
+            <!-- <input type="checkbox" ng-model="uniqJokeType" hidden/> -->
           </div>
         </div>
+      </div>
       <div class="col-md-12">
         <h4>Answer Type</h4>
       </div>
-      <div class="col-md-4" ng-repeat="uniqAnswerType in uniqAnswerTypes">
-        <div class="type-filter-button" ng-class="answerCssClasses(uniqAnswerType)" ng-click="answerTypeClick(uniqAnswerType)">
-          <label ng-bind="uniqAnswerType"></label>
-          <input type="checkbox" ng-model="AnswerTypeFilter[uniqAnswerType]" hidden/>
+      <div ng-repeat="uniqAnswerType in uniqAnswerTypes">
+        <div class="row">
+          <div class="col-md-7 col-md-offset-1">
+            <div class="type-filter-button"
+                 ng-class="answerCssClasses(uniqAnswerType)"
+                 ng-click="answerTypeClick(uniqAnswerType)">
+              <label ng-bind="uniqAnswerType"
+                     for="input-{{uniqAnswerType | SpaceToHyphen}}">
+              </label>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <input id="input-{{uniqAnswerType | SpaceToHyphen}}"x
+                   type="checkbox"
+                   ng-model="AnswerTypeFilter[uniqAnswerType]"
+                   class="js-switch"
+                   ui-switch="{color: '#E43B11', secondaryColor: '#F89279'}"
+                   checked />
+            <!-- <input type="checkbox" ng-model="AnswerTypeFilter[uniqAnswerType]" hidden/> -->
+          </div>
         </div>
       </div>
     </div>   
@@ -40,11 +84,17 @@
       </div>
       <div class="col-md-12">
         <h5>Joke Filtering</h5>
-        <rzslider rz-slider-model="slider.jokeLowerBound" rz-slider-high="slider.jokeUpperBound" rz-slider-floor="slider.min" rz-slider-ceil="slider.max"></rzslider>
+        <rzslider rz-slider-model="slider.jokeLowerBound"
+                  rz-slider-high="slider.jokeUpperBound"
+                  rz-slider-floor="slider.min"
+                  rz-slider-ceil="slider.max"></rzslider>
       </div>
       <div class="col-md-12">
         <h5>Answer Filtering</h5>
-        <rzslider rz-slider-model="slider.answerLowerBound" rz-slider-high="slider.answerUpperBound" rz-slider-floor="slider.min" rz-slider-ceil="slider.max"></rzslider>
+        <rzslider rz-slider-model="slider.answerLowerBound"
+                  rz-slider-high="slider.answerUpperBound"
+                  rz-slider-floor="slider.min"
+                  rz-slider-ceil="slider.max"></rzslider>
       </div>
     </div>
   </div>
