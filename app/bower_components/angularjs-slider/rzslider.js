@@ -4,7 +4,7 @@
  * (c) Rafal Zajac <rzajac@gmail.com>
  * http://github.com/rzajac/angularjs-slider
  *
- * Version: v0.1.3
+ * Version: v0.1.6
  *
  * Licensed under the MIT license
  */
@@ -338,7 +338,7 @@ function throttle(func, wait, options) {
       var valStr = this.customTrFn && useCustomTr ? '' + this.customTrFn(value) : '' + value,
         getWidth = false;
 
-      if(label.rzsv === undefined || label.rzsv.length != valStr.length)
+      if(label.rzsv === undefined || label.rzsv.length != valStr.length || (label.rzsv.length > 0 && label.rzsw == 0))
       {
         getWidth = true;
         label.rzsv = valStr;
@@ -784,13 +784,13 @@ function throttle(func, wait, options) {
 
       if(event.touches || (typeof(event.originalEvent) != 'undefined' && event.originalEvent.touches))
       {
-        $document.on('touchmove', angular.bind(this, this.onMove, pointer));
-        $document.on('touchend', angular.bind(this, this.onEnd));
+        $document.on('touchmove.rzslider', angular.bind(this, this.onMove, pointer));
+        $document.on('touchend.rzslider', angular.bind(this, this.onEnd));
       }
       else
       {
-        $document.on('mousemove', angular.bind(this, this.onMove, pointer));
-        $document.on('mouseup', angular.bind(this, this.onEnd));
+        $document.on('mousemove.rzslider', angular.bind(this, this.onMove, pointer));
+        $document.on('mouseup.rzslider', angular.bind(this, this.onEnd));
       }
     },
 
@@ -876,13 +876,13 @@ function throttle(func, wait, options) {
 
       if(event.touches || (typeof(event.originalEvent) != 'undefined' && event.originalEvent.touches))
       {
-        $document.unbind('touchmove');
-        $document.unbind('touchend');        
+        $document.unbind('touchmove.rzslider');
+        $document.unbind('touchend.rzslider');
       }
       else
       {
-        $document.unbind('mousemove');
-        $document.unbind('mouseup');
+        $document.unbind('mousemove.rzslider');
+        $document.unbind('mouseup.rzslider');
       }
 
       this.scope.$emit('slideEnded');

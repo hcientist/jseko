@@ -2,7 +2,6 @@
 
 angular.module('jsekoApp')
 .factory('JokeService', function($http, $q) {
-
   return {
     getJokes: function() {
       var deferred = $q.defer();
@@ -22,8 +21,5 @@ angular.module('jsekoApp')
       //   return result.data;
       // });
     }
-
-
-
   };
 });

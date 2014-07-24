@@ -2,14 +2,12 @@
 
 Slider directive implementation for AngularJS, without any dependencies.
 
-**This fork adds jQuery compatibility for touch events. The original slider's touch events break when it is used outside jQuery Lite, ie. with full jQuery.**
-
-
 - Mobile friendly
 - Fast
 - Well documented
 - Customizable
 - Simple to use
+- Compatibility with jQuery Lite, ie. with full jQuery ( Thanks Jusas! https://github.com/Jusas)
 
 ## Examples
 
@@ -144,16 +142,16 @@ You can also force redraw with **rzSliderForceRender** event.
 ## Changelog
 
 **v0.1.3**
-    
+
     Forked from this version.
 
 **v0.1.4**
 
-    Touch events were broken if jQuery was used with Angular instead of jQuery lite. This version fixes them.
+    Touch events were broken if jQuery was used with Angular instead of jQuery lite. This version fixes them (Jusas).
 
 **v0.1.5**
 
-    Added 'slideEnded' event (emitted on slider knob dragging ended)
+    Added 'slideEnded' event emitted on slider knob dragging ended (Jusas).
 
 ## Disclaimer
 

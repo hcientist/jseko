@@ -2,9 +2,8 @@
 
 angular.module('jsekoApp')
 .factory('ColorService', function() {
-
   return {
-    color: function(index) {
+    onColors: function(index) {
       var hexColors = {
         0:  '#FF0000',  //red
         1:  '#00ff00',  //bright green
@@ -23,6 +22,30 @@ angular.module('jsekoApp')
         14: '#006600',  //michaels green
         15: '#8000ff',  //purple
         16: '#4B0082',  //indigo
+        17: '#000000',  //black
+        18: '#ffffff'   //white
+      };
+      return hexColors[index];
+    },
+    offColors: function(index) {
+      var hexColors = {
+        0:  '#FFCCCC',  //red
+        1:  '#CCFFCC',  //bright green
+        2:  '#CCCCFF',  //blue
+        3:  '#FFCCFF',  //hot pink
+        4:  '#CCFFFF',  //light blue
+        5:  '#FFFFCC',  //light green
+        6:  '#FF9999',  //maroon
+        7:  '#CCFFFF',  //med blue
+        8:  '#FFFFEE',  //light orange
+        9:  '#FFFF99',  //olive
+        10: '#99FFFF',  //Turquoise
+        11: '#FF99FF',  //magenta
+        12: '#FFD999',  //dark orange
+        13: '#FFFF99',  //yellow
+        14: '#99FF99',  //michaels green
+        15: '#FF99FF',  //purple
+        16: '#E499FF',  //indigo
         17: '#000000',  //black
         18: '#ffffff'   //white
       };
