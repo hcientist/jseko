@@ -1,20 +1,21 @@
 <div masonry class="row">
   <div class="col-xs-8 col-xs-offset-1">
-    <h5>{{routeParams}}</h5>
-    <h5>{{jokeType}}</h5>
-    <h5>{{answerType}}</h5>
     <h1>Jseko: Jokes in no particular order</h1>
-    <!-- ng-show="JokeTypeFilter[individualJoke.type]" -->
-    <joke ng-repeat="individualJoke in allJokes |
+    <joke ng-repeat="individualJoke in filteredAllJokes = (
+                     allJokes |
                      filter:jokePCRange |
                      orderBy:randomOrder |
-                     filter:jokeSearch |
-                     Type:arrayOfViewableJokeTypes"
+                     filter:searchAll |
+                     Type:arrayOfViewableJokeTypes)"
           model="individualJoke"
           answer-filter-array="arrayOfViewableAnswerTypes"
           answer-range="answerPCRange"
           class="col-xs-4 joke joke-animation"
           ng-class="jokeCssClasses(individualJoke.type)"></joke>
+    <div ng-animate="'no-jokes'" ng-cloak ng-show="!filteredAllJokes.length">
+      <div class="bg-info nfo">Unfortunately there are no jokes that are humorous enough to be on this site with that search criteria.  Try again!</div>
+      <div><img id="humerus" class="img-responsive" src="img/humerus.jpg" alt="Hope you fin this humorous too!"></div>
+    </div>
   </div>
   <div class="col-xs-2 filter">
     <h3>Filters</h3>
@@ -23,7 +24,7 @@
         <h4>Search :</h4>
       </div>
       <div class="col-xs-12">
-        <input id="searchField" type="text" placeholder="Full or part-i-al words" ng-model="jokeSearch">
+        <input id="searchField" type="text" placeholder="Full or part i al words" ng-model="searchAll">
       </div>
     </div>
     <div class="row">
@@ -31,27 +32,21 @@
         <h4>Joke Type</h4>
       </div>
       <div ng-repeat="uniqJokeType in uniqJokeTypes">
-        <div class="row">
+        <div class="row" ng-click="jokeTypeClick(uniqJokeType)">
           <div class="col-xs-7 col-xs-offset-1">
             <div class="type-filter-button"
-                 ng-class="jokeCssClasses(uniqJokeType)"
-                 >
-                 <!-- ng-click="jokeTypeClick(uniqJokeType)" -->
-              <label 
-                     for="input-{{uniqJokeType | SpaceToHyphen}}">{{uniqJokeType}}
-              </label>
+                 ng-class="jokeCssClasses(uniqJokeType)">
+              <label for="input-{{uniqJokeType | SpaceToHyphen}}">{{uniqJokeType}}</label>
             </div>
           </div>
           <div class="col-xs-3">          
             <input id="input-{{uniqJokeType | SpaceToHyphen}}"
-                   type="checkbox"
                    ng-click="jokeTypeClick(uniqJokeType)"
+                   type="checkbox"
                    class="js-switch"
                    ui-switch="{color: '{{colors.onColors($index)}}', secondaryColor: '{{colors.offColors($index)}}'}"
-                   checked />
-                   <!-- ng-model="uniqJokeType" -->
-            <!-- <input id="input-{{uniqJokeType}}" type="checkbox" ng-model="uniqJokeType" class="js-switch" ui-switch checked /> -->
-            <!-- <input type="checkbox" ng-model="uniqJokeType" hidden/> -->
+                   checked
+                  />
           </div>
         </div>
       </div>
@@ -75,7 +70,8 @@
                    type="checkbox"
                    class="js-switch"
                    ui-switch="{color: '{{colors.onColors(16-$index)}}', secondaryColor: '{{colors.offColors(16-$index)}}'}"
-                   checked />
+                   checked
+                  />
 <!--                    ng-model="AnswerTypeFilter[uniqAnswerType]" -->
             <!-- <input type="checkbox" ng-model="AnswerTypeFilter[uniqAnswerType]" hidden/> -->
           </div>

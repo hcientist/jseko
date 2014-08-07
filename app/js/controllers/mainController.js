@@ -3,16 +3,16 @@
 'use strict';
 
 angular.module('jsekoApp')
-  .controller('MainController', [ '$scope', '$filter', '$firebase', '$routeParams', '$location', 'JokeService', 'TypeFilter', 'SpaceToHyphenFilter', 'ColorService', function MainController($scope, $filter, $firebase, $routeParams, $location, JokeService, Type, SpaceToHyphen, ColorService) {
+  .controller('MainController', [ '$scope', '$filter', '$firebase', '$routeParams', '$location', 'JokeService', 'TypeFilter', 'SpaceToHTMLFilter', 'ColorService', function MainController($scope, $filter, $firebase, $routeParams, $location, JokeService, Type, SpaceToHTML, ColorService) {
 
     $scope.message = 'ANSWER: ';
 
     var jokesRef = new Firebase('https://jseko.firebaseio.com/');
     $scope.fireJokes = $firebase(jokesRef);
 
-    $scope.fireJokes.$on('loaded', function(value) {
-      jokeTypeList(shuffleArray(value.jokes), filterRouteParams);
-      $scope.allJokes = value.jokes;
+    $scope.fireJokes.$on('loaded', function(val) {
+      jokeTypeList(shuffleArray(val.jokes), filterRouteParams);
+      $scope.allJokes = val.jokes;
     });
 
     $scope.arrayOfViewableJokeTypes = {};
@@ -28,12 +28,12 @@ angular.module('jsekoApp')
     };
 
     function filterRouteParams (rp){
-      if(rp.srch){
-        $scope.srch = rp.srch;
-        $scope.jokeSearch = rp.srch;
+      if(rp.s){
+        $scope.searchAll = rp.s;
       }
       if(rp.jokeType){
         var jokeTypes = rp.jokeType.split(',');
+        $scope.jokeTypes = jokeTypes;
         for (var i=0 ; i<jokeTypes.length ; i++) {
           if( $scope.arrayOfViewableJokeTypes[jokeTypes[i]] ){
             $scope.arrayOfViewableJokeTypes[jokeTypes[i]] = false;
@@ -42,9 +42,10 @@ angular.module('jsekoApp')
       }
       if(rp.answerType){
         var answerTypes = rp.answerType.split(',');
-        for (var i=0 ; i<answerTypes.length ; i++) {
-          if( $scope.arrayOfViewableAnswerTypes[answerTypes[i]] ){
-            $scope.arrayOfViewableAnswerTypes[answerTypes[i]] = false;
+        $scope.answerTypes = answerTypes;
+        for (var j=0 ; j<answerTypes.length ; j++) {
+          if( $scope.arrayOfViewableAnswerTypes[answerTypes[j]] ){
+            $scope.arrayOfViewableAnswerTypes[answerTypes[j]] = false;
           }
         }
       }
@@ -78,6 +79,22 @@ angular.module('jsekoApp')
       return array;
     };
 
+    $scope.$watch('searchAll', function (val) {
+      $location.search('s', val);
+    });
+    $scope.$watch('slider.jokeLowerBound', function (val) {
+      $location.search('jokeFilter', val + ',' + $scope.slider.jokeUpperBound);
+    });
+    $scope.$watch('slider.jokeUpperBound', function (val) {
+      $location.search('jokeFilter', $scope.slider.jokeLowerBound + ',' + val);
+    });
+    $scope.$watch('slider.answerLowerBound', function (val) {
+      $location.search('answerFilter', val + ',' + $scope.slider.answerUpperBound);
+    });
+    $scope.$watch('slider.answerUpperBound', function (val) {
+      $location.search('answerFilter', $scope.slider.answerLowerBound + ',' + val);
+    });
+
     var jokeTypeList = function(jokeArray, callback){
       var uniqJokeTypes = [];
       var uniqAnswerTypes = [];
@@ -100,19 +117,41 @@ angular.module('jsekoApp')
       }
       $scope.uniqJokeTypes = uniqJokeTypes;
       $scope.uniqAnswerTypes = uniqAnswerTypes;
-      if (callback && typeof(callback) === "function") {
+      if (callback && typeof(callback) === 'function') {
         callback($routeParams);
       }
     };
 
     $scope.jokeTypeClick = function(option){
+      console.log('jokeTypeClick');
       var uniqJoke = option;
       $scope.arrayOfViewableJokeTypes[uniqJoke] = !$scope.arrayOfViewableJokeTypes[uniqJoke];
-      // $location
+      var falseJokeTypes = '';
+      for(var index in $scope.arrayOfViewableJokeTypes) {
+        if($scope.arrayOfViewableJokeTypes[index] === false){
+          if(falseJokeTypes === ''){
+            falseJokeTypes = index;
+          } else {
+            falseJokeTypes = falseJokeTypes + ',' + index;
+          }
+        }
+      }
+      $location.search('jokeType', falseJokeTypes);
     };
     $scope.answerTypeClick = function(option){
       var uniqAnswer = option;
       $scope.arrayOfViewableAnswerTypes[uniqAnswer] = !$scope.arrayOfViewableAnswerTypes[uniqAnswer];
+      var falseAnswerTypes = '';
+      for(var index in $scope.arrayOfViewableAnswerTypes) {
+        if($scope.arrayOfViewableAnswerTypes[index] === false){
+          if(falseAnswerTypes === ''){
+            falseAnswerTypes = index;
+          } else {
+            falseAnswerTypes = falseAnswerTypes + ',' + index;
+          }
+        }
+      }
+      $location.search('answerType', falseAnswerTypes);
     };
 
     $scope.jokeCssClasses = function(uniqJoke) {

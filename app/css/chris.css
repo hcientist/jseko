@@ -1,3 +1,13 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+.nfo {
+  padding: 15px;
+  margin-bottom: 15px;
+}
+#humerus {
+  width: 75%;
+}
 label {
   margin-bottom: 0px;
 }
@@ -174,6 +184,50 @@ label {
   opacity:0.5;
 }
 .joke-animation.ng-move.ng-move-active {
+  opacity:1;
+}
+
+.no-jokes.ng-enter, 
+.no-jokes.ng-leave, 
+.no-jokes.ng-move {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  position:relative;
+  /*color:red;*/
+}
+.no-jokes.ng-hide-add.ng-hide-add-active,
+.no-jokes.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  color: red;
+}
+.no-jokes.ng-hide {
+  line-height:0;
+  opacity:0;
+  padding:0 10px;
+}
+.no-jokes.ng-enter {
+  left:-10px;
+  opacity:0;
+}
+.no-jokes.ng-enter.ng-enter-active {
+  left:0;
+  opacity:1;
+}
+.no-jokes.ng-leave {
+  left:0;
+  opacity:1;
+}
+.no-jokes.ng-leave.ng-leave-active {
+  left:-10px;
+  opacity:0;
+}
+.no-jokes.ng-move {
+  opacity:0.5;
+}
+.no-jokes.ng-move.ng-move-active {
   opacity:1;
 }
 
