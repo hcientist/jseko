@@ -4,7 +4,6 @@
 angular.module('jsekoApp')
 .filter('Type', function () {
   return function (allItems, arrayOfViewableTypes) {
-    // console.log(arrayOfViewableTypes);
 
     var filteredArray = [];
 
