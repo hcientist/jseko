@@ -45,7 +45,7 @@
                    type="checkbox"
                    class="js-switch"
                    ui-switch="{color: '{{colors.onColors($index)}}', secondaryColor: '{{colors.offColors($index)}}'}"
-                   checked
+                   ng-checked="arrayOfViewableJokeTypes[uniqJokeType]"
                   />
           </div>
         </div>

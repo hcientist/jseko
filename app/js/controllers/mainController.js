@@ -159,12 +159,16 @@ angular.module('jsekoApp')
         console.log("rp.jokeType){")
         var jokeTypes = rp.jokeType.split(',');
         $scope.jokeTypes = jokeTypes;
+        console.log("$scope.jokeTypes", $scope.jokeTypes)
+        console.log("$scope.arrayOfViewableJokeTypes", $scope.arrayOfViewableJokeTypes)
         for (var i=0 ; i<jokeTypes.length ; i++) {
           if( $scope.arrayOfViewableJokeTypes[jokeTypes[i]] ){
             // console.log("( $scope.arrayOfViewableJokeTypes[jokeTypes[i]] ){")
             $scope.arrayOfViewableJokeTypes[jokeTypes[i]] = false;
           }
         }
+        console.log("$scope.jokeTypes", $scope.jokeTypes)
+        console.log("$scope.arrayOfViewableJokeTypes", $scope.arrayOfViewableJokeTypes)
       }
       if(rp.answerType){
         console.log("rp.answerType){")
